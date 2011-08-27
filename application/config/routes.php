@@ -38,9 +38,10 @@
 |
 */
 
-$route['default_controller'] = "mobile/pages";
+$route['default_controller'] = 'mobile/pages';
 $route['404_override'] = '';
 
+$route['admin/local/new'] = 'admin/local/form_new';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

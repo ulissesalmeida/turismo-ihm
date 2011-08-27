@@ -1,10 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Pages extends CI_Controller {
+	
+	public function __construct(){
+		parent::__construct();
+		$this->load->helper('url');
+	}
 
 	public function index()
 	{
-		$this->load->helper('url');
 		$this->load->view('layout/mobile/header');
 		$this->load->view('mobile/index');
 		$this->load->view('layout/mobile/footer');
@@ -12,7 +16,6 @@ class Pages extends CI_Controller {
 	
 	public function search()
 	{
-		$this->load->helper('url');
 		$this->load->view('layout/mobile/header');
 		$this->load->view('mobile/search');
 		$this->load->view('layout/mobile/footer');
@@ -20,7 +23,6 @@ class Pages extends CI_Controller {
 	
 	public function result()
 	{
-		$this->load->helper('url');
 		$this->load->view('layout/mobile/header');
 		$this->load->view('mobile/search_result');
 		$this->load->view('layout/mobile/footer');
