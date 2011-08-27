@@ -12,6 +12,8 @@
     			<link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
   		<![endif]--> 
 		<link rel="stylesheet" href="/css/mobile/custom.css" type="text/css" media="screen">
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 	</head>  
 
