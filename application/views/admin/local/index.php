@@ -6,7 +6,7 @@
 <ul>
 	<?php foreach ($places as $local):?>
 	
-		<li><?=$local->city.' - '.$local->state.' - '.$local->country?>
+		<li><?=$local->get_description()?>
 			<a href="/admin/places/edit/<?=$local->id?>">Editar</a>
 			<a href="/admin/places/delete/<?=$local->id?>">Excluir</a>
 		</li>

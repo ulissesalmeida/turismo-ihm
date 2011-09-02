@@ -18,15 +18,22 @@ class Hostels extends CI_Controller {
 
 	public function form_new()
 	{	$this->load->helper('form');
+		$this->load->model('local');
+	
+		$data['places'] =  $this->local->list_all();
+	
 		$this->load->view('layout/admin/header');
-		$this->load->view('admin/hostel/new');
+		$this->load->view('admin/hostel/new',$data);
 		$this->load->view('layout/admin/footer');
 	}
 	
 	public function edit($id){
 		$this->load->helper('form');
 		$this->load->model('hostel');
-		$data['local'] = $this->hostel->get($id);
+		$this->load->model('local');		
+		
+		$data['hostel'] = $this->hostel->get($id);
+		$data['places'] =  $this->local->list_all();
 	
 		$this->load->view('layout/admin/header');
 		$this->load->view('admin/hostel/edit',$data);
@@ -36,10 +43,9 @@ class Hostels extends CI_Controller {
 	
 	public function create(){
 		$this->load->model('hostel');
-		$this->hostel->city = $this->input->post('city');
-		$this->hostel->state = $this->input->post('state');
-		$this->hostel->country = $this->input->post('country');
-		$this->local->create();
+		$this->hostel->name = $this->input->post('name');
+		$this->hostel->local_id = $this->input->post('local');
+		$this->hostel->create();
 		
 		redirect('/admin/hostels');
 	}	
@@ -47,10 +53,9 @@ class Hostels extends CI_Controller {
 	public function update(){
 		$this->load->model('hostel');
 		$this->hostel->id = $this->input->post('id');
-		$this->hostel->city = $this->input->post('city');
-		$this->hostel->state = $this->input->post('state');
-		$this->hostel->country = $this->input->post('country');
-		$this->local->save();
+		$this->hostel->name = $this->input->post('name');
+		$this->hostel->local_id = $this->input->post('local');;
+		$this->hostel->save();
 		
 		redirect('/admin/hostels');
 	}
@@ -58,7 +63,7 @@ class Hostels extends CI_Controller {
 	public function delete($id){
 		$this->load->helper('form');
 		$this->load->model('hostel');
-		$this->local->delete($id);
+		$this->hostel->delete($id);
 		
 		redirect('/admin/hostels');
 	}

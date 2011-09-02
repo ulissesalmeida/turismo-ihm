@@ -8,7 +8,11 @@ class Local extends CI_Model {
 	{
 		parent::__construct();
 		$this->load->database('default');
-	}	
+	}
+
+	public function get_description(){
+		return $this->city.' - '.$this->state.' - '.$this->country;
+	}
 	
 	public function create(){
 		$this->db->insert('local',$this);
