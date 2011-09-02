@@ -13,5 +13,5 @@
 	<?php endforeach;?>
 </ul>
 <?php else :?>
-	 <p> </p><
+	 <p> Não há locais cadastrados </p>
 <?php endif; ?>
