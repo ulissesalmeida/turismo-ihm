@@ -24,7 +24,7 @@
 	<?=form_close()?>
 	<?php $data['rooms'] = $hostel->get_rooms();
 	      $data['hostel'] = $hostel; 
-	      $this->load->view('admin/hostel/rooms',$data); 
+	      $this->load->view('admin/hostel/rooms/index',$data); 
 	?>
 <?php else:?>
 	<p> Hospedagem não existe </p>

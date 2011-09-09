@@ -43,6 +43,7 @@ $route['404_override'] = '';
 
 $route['admin/places/new'] = 'admin/places/form_new';
 $route['admin/hostels/new'] = 'admin/hostels/form_new';
+$route['admin/hostels/(:num)/rooms/new'] = "admin/rooms/form_new/$1";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
