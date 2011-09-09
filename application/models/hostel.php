@@ -32,6 +32,16 @@ class Hostel extends CI_Model {
 		return $query->row(0,'Hostel');
 	}
 	
+	
+	public function get_rooms(){
+		$this->load->model("room");
+		$this->db->select('*');
+		$this->db->from('hostel_room');
+		$this->db->where('hostel_id',$this->id);
+		$query = $this->db->get();
+		return $query->result('Room');
+	}
+	
 	public function list_all(){
 		$this->db->select('*');
 		$this->db->from('hostel');
