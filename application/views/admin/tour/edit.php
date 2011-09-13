@@ -16,7 +16,7 @@
 		
 		<input name="id" type="hidden" value="<?=set_value('id',$tour->id)?>">
 	
-		<label for="local">Local<?=$tour->local_id?></label>
+		<label for="local">Local</label>
 		<?=form_dropdown('local',$places_options,$tour->local_id)?>
 	
 		<label for="name">Nome</label>

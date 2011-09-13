@@ -20,6 +20,22 @@
 
 			<header>
 				<h1> Viagens MuithoLokas.com Admin </h1> 
+				<nav>
+					<ul>
+						<li>
+							<a href="admin/hostels"> Hoteis </a>
+						</li>
+						<li>
+							<a href="admin/places"> Locais </a>
+						</li>
+						<li>
+							<a href="admin/tours"> Passeios </a>
+						</li>
+						<li>
+							<a href="admin/packages"> Pacotes turísticos </a>
+						</li>						
+					</ul>
+				</nav>
 			</header>
 			<section>
 			

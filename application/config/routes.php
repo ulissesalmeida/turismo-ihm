@@ -41,12 +41,17 @@
 $route['default_controller'] = 'mobile/pages';
 $route['404_override'] = '';
 
+$route['admin'] = 'admin/pages/index';
+
 $route['admin/places/new'] = 'admin/places/form_new';
 
 $route['admin/hostels/new'] = 'admin/hostels/form_new';
 $route['admin/hostels/(:num)/rooms/new'] = "admin/rooms/form_new/$1";
 
 $route['admin/tours/new'] = 'admin/tours/form_new';
+
+$route['admin/packages/new'] = 'admin/packages/form_new';
+$route['admin/packages/(:num)/days/new'] = "admin/packagedays/form_new/$1";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

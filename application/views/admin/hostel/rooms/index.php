@@ -4,7 +4,7 @@
 <ul>
 	<?php foreach ($rooms as $room):?>
 	
-		<li>Cód: <?=$room->id?> | Camas[ Solteiro:<?=$room->single_beds?> | Casal: <?=$room->double_beds?> ] | Preço: <?=$room->price?>
+		<li><?=$room->get_description()?>
 			<a href="/admin/rooms/edit/<?=$room->id?>">Editar</a>
 			<a href="/admin/rooms/delete/<?=$room->id?>">Excluir</a>
 		</li>

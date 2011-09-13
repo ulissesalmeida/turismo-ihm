@@ -10,6 +10,19 @@ class Room extends CI_Model {
 	{
 		parent::__construct();
 		$this->load->database('default');
+	}
+	
+	public function get_description(){
+		return 'Cód:'.$this->id.
+				'| Camas[Solteiro:'.$this->single_beds.
+				' | Casal: '.$this->double_beds.
+				' ] | Preço: '.$this->price;
+	}
+	
+	public function get_room_summary(){
+		return $this->name.' | Camas[Solteiro:'.$this->single_beds.
+				' | Casal: '.$this->double_beds.
+				' ] | Preço: '.$this->price;
 	}	
 	
 	public function create(){
@@ -38,6 +51,15 @@ class Room extends CI_Model {
 	public function list_all(){
 		$this->db->select('*');
 		$this->db->from('hostel_room');
+		$query = $this->db->get();
+		return $query->result('Room');
+	}
+	
+	public function list_by_local($local_id){
+		$this->db->select('hr.id,hr.hostel_id, hr.description, hr.price, hr.single_beds, hr.double_beds, hostel.name');
+		$this->db->from('hostel_room hr');
+		$this->db->join('hostel', 'hr.hostel_id = hostel.id');
+		$this->db->where('hostel.local_id ',$local_id);
 		$query = $this->db->get();
 		return $query->result('Room');
 	}
