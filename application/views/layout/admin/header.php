@@ -6,7 +6,7 @@
 		<title>Viagens MuithoLokas.com Admin </title>
 		 <base href="<?=base_url()?>" />
 		 <link rel="stylesheet" href="/css/blueprint/screen.css" type="text/css" media="screen, projection">
-		
+		 <link rel="stylesheet" href="/css/admin/custom.css" type="text/css" media="screen, projection">
   		<link rel="stylesheet" href="/css/blueprint/print.css" type="text/css" media="print"> 
   		<!--[if lt IE 8]>
     			<link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
@@ -19,11 +19,16 @@
 		<div id="container" class="container">
 
 			<header>
-				<h1> Viagens MuithoLokas.com Admin </h1> 
-				<nav>
+				<h1> PCV admin </h1> 
+				
+			</header>
+			<nav>
 					<ul>
 						<li>
-							<a href="admin/hostels"> Hoteis </a>
+							<a href="admin/"> Home </a>
+						</li>
+						<li>
+							<a href="admin/hostels"> Hospedagens </a>
 						</li>
 						<li>
 							<a href="admin/places"> Locais </a>
@@ -36,6 +41,12 @@
 						</li>						
 					</ul>
 				</nav>
-			</header>
 			<section>
-			
+			<!--
+			<?php // if ($this->session->flashdata('success')): ?>
+				<div class="success"><?='teste';//$this->session->flashdata('success')?></div> 
+			<?php // endif; ?>
+			<div class="info">Teste</div>
+			<div class="notice">Teste</div>
+			<div class="error">Teste</div>
+			--!>

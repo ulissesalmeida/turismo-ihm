@@ -9,18 +9,20 @@
 	}
 
 ?>
-
 <?php if ($hostel): ?>
-	<h1>Editar Hospedagem</h1>	
+	<h1>Editando a hospedagem</h1>	
 	<?=form_open('/admin/hostels/update')?>
 		<input type="hidden" name="id" value="<?=set_value('id',$hostel->id)?>" />
-		<label for="name">Nome</label>
-		<input name="name" type="text" value="<?=set_value('name',$hostel->name)?>" />
-		
-		<label for="local">Local</label>
-		<?=form_dropdown('local',$places_options,$hostel->local_id)?>
+		<p>
+			<label for="name">Nome</label>
+			<input name="name" type="text" value="<?=set_value('name',$hostel->name)?>" />
+		</p>
+		<p>
+			<label for="local">Local</label>
+			<?=form_dropdown('local',$places_options,$hostel->local_id)?>
+		</p>
 				
-		<input type="submit" />
+		<input class="button" type="submit" value="Salvar" />
 	<?=form_close()?>
 	<?php $data['rooms'] = $hostel->get_rooms();
 	      $data['hostel'] = $hostel; 

@@ -1,4 +1,4 @@
-<h1> Quartos </h1>
+<h2> Quartos </h2>
 <p><a href="/admin/hostels/<?=$hostel->id?>/rooms/new" > Novo quarto </a></p>
 <?php if(count($rooms) > 0):?>
 <ul>

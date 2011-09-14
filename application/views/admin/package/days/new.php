@@ -14,12 +14,13 @@
 <form method="post" action="/admin/packagedays/create">
 
 	<input type="hidden" name="tour_package" value="<?=$package->id?>" />
-		
-	<label for="date">Data:</label>
-	<input type="date" name="date"></input>
-	
-	<label for="rooms[]">Selecione o quarto</label>
-	<?=form_dropdown('rooms[]',$rooms_options)?>
-		
-	<input type="submit" />
+	<p>	
+		<label for="date">Data</label>
+		<input type="date" name="date"></input>
+	</p>
+	<p>
+		<label for="rooms[]">Selecione o quarto</label>
+		<?=form_dropdown('rooms[]',$rooms_options)?>
+	</p>	
+	<input class="button" type="submit" value="Salvar" />
 </form>

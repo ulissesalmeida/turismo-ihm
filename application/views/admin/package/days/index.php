@@ -1,4 +1,4 @@
-<h1> Diárias </h1>
+<h2> Diárias </h2>
 <p><a href="/admin/packages/<?=$package->id?>/days/new" > Novo dia </a></p>
 <?php if(count($package_days) > 0):?>
 
