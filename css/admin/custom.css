@@ -1,0 +1,137 @@
+@charset "UTF-8"; 
+
+body{
+	background-color:#FFF;
+}
+
+#container{
+	background-color:#FFF;
+	width:960px;
+}
+
+header{
+		text-align:left;
+		background-color:#FF9908;
+		border: solid 1px #FFF;
+		-moz-border-radius: 45px;
+		-webkit-border-radius: 45px;
+		
+}
+header h1{
+		font-size:14px;
+		font-weight:bold;
+		margin-left:4px;
+		margin-top:4px;
+		color: #FFF;
+}
+
+nav {
+	background-color: #FFF;
+	float:left;
+	margin: 0px;
+	padding:2px;
+	width:100%;
+}
+nav ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+nav li{
+	text-align:center;	
+}
+nav li a{
+	display: block;
+	margin-right:6px;
+	color: #FFF;
+	background-color:#FFAD08;
+	width: 10em;
+	padding: .2em .8em;
+	font-size: 16px;
+	text-decoration: none;
+	font-weight: bold;
+	float:left;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+nav li a:hover{
+	color: #FFF;
+	background-color: #FF8108;
+}
+section {
+	clear:both;
+	font-size: 14px;
+	padding:8px;
+}
+section h1 {
+	color: #542900;
+	padding-bottom:4px;
+	border-bottom: solid 2px #543100;
+}
+
+section h2 {
+	color: #542900;
+	padding-bottom:4px;
+	border-bottom: solid 2px #543100;
+}
+
+section h3 {
+	margin-top: 12px;
+	color: #542900;
+	padding-bottom:4px;
+	border-bottom: solid 2px #543100;
+}
+section a{
+	text-decoration: none;
+	font-weight: bold;
+	font-size:14px;
+	color:#FFAD08;
+}
+section a:hover{
+	color: #FF8108;
+}
+footer {
+	background-color:#543100;
+	border: solid 1px #FFF;
+	padding:2px;
+	text-align:center;
+	clear:both;
+
+}
+footer p {
+	color: #FFF;
+}
+
+.button {
+    /* Disables default styling */
+    border: none;
+    background: #FF8108;
+    color: #fff;
+
+    /* You need to set font, font size and cursor for buttons */
+    font-size: 15px;
+    font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    cursor: pointer;
+
+    padding: 8px 13px;
+    font-weight: bold;
+}
+.button {
+    border-radius: 5px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.15);
+    box-shadow:
+        0 0 0 1px #FF8108 inset, /* Outer bevel */
+        0 0 0 2px #FF8108 inset, /* Inner bevel */
+        0 30px 20px -18px rgba(255,255,255,0.65) inset, /* Inner gradient */
+        1px 1px 3px rgba(0,0,0,0.2) /* Drop shadow */
+    ;
+
+    -webkit-border-radius: 5px;
+    -webkit-text-shadow: 0 -1px 0 rgba(0,0,0,0.15);
+    -webkit-box-shadow:
+        0 0 0 1px #FF0008 inset, /* Outer bevel */
+        0 0 0 2px #FF8108 inset, /* Inner bevel */
+        0 30px 20px -18px rgba(255,255,255,0.65) inset, /* Inner gradient */
+        1px 1px 3px rgba(0,0,0,0.2) /* Drop shadow */
+    ;
+}
