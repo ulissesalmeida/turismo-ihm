@@ -3,7 +3,7 @@
 
 	<head>  
 
-		<title>Viagens MuithoLokas.com</title>
+		<title>PCV - Turismo</title>
 		 <base href="<?=base_url()?>" />
 		 <link rel="stylesheet" href="/css/blueprint/screen.css" type="text/css" media="screen, projection">
 		
@@ -21,19 +21,6 @@
 		<div id="container" class="container">
 
 			<header>
-				<h1> Viagens MuithoLokas.com </h1> 
+				<h1> PCV Turismo </h1> 
 			</header>
-			
-			<nav>
-				<ul>
-					<li>
-						<a href="/mobile/pages/search" title="Viajar"> Hora de viajar! </a>
-						<a href="viajar.html" title="Viajar"> Outro Link! </a>
-						<a href="viajar.html" title="Viajar"> Outro Link! </a>
-						<a href="viajar.html" title="Viajar"> Outro Link! </a>
-					</li>
-				</ul>
-			</nav>
-			
-
 			<section>

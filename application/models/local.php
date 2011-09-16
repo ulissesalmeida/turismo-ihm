@@ -44,6 +44,14 @@ class Local extends CI_Model {
 		return $query->result('Local');
 	}
 	
+	public function list_countries(){
+		$this->db->distinct();
+		$this->db->select('country');
+		$this->db->from('local');
+		$query = $this->db->get();
+		return $query->result('Local');
+	}
+	
 	
 }
 

@@ -1,12 +1,12 @@
 @charset "UTF-8"; 
 
 body{
-	background-color:#000;
+	background-color:#FFF;
 }
 
 #container{
 	background-color:#FFF;
-	width:480px;
+	width:320px;
 }
 
 header{
@@ -21,48 +21,177 @@ header h1{
 		font-size: 18px;
 }
 
-
-nav {
-	background-color: #000;
-	float:left;
+#places{
+	background-color: #FFF;
 	padding:2px;
 	width:100%;
 }
-nav ul{
-	float:left;
+
+#places ul{
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
+	width:100%;
 }
-nav li{
-	text-align:center;	
+
+#places li{
+	text-align:center;
 }
-nav li a{
-	display: block;
-	margin-right:6px;
+#places li a img{
+	width: 95px;
+	height:80px;
 	float:left;
-	color: #EEE;
-	background-color: #FC9B32;
-	width: 8em;
+	
+}
+#places li a{
+	display: block;
+	float:left;
+	color: #FFF;
+	border: 2px solid #FFAD08;
+	font-size: 12px;
+	text-decoration: none;
+	font-weight: bold;
+	margin-right:2px;
+	padding-bottom:0px;
+	cursor:pointer;
+}
+
+#places li a:hover{
+	color: #FFF;
+	border: 2px solid #FF8108;
+}
+
+#navigation {
+	clear:both;
+	background-color: #FFF;
+	padding:2px;
+	width:100%;
+}
+#navigation ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	width:100%;
+}
+#navigation li{
+	text-align:center;
+	width:100%;
+}
+#navigation li a{
+	display: block;
+	color: #FFF;
+	background-color: #FFAD08;
+	width: 90%;
 	padding: .2em .8em;
 	font-size: 12px;
 	text-decoration: none;
 	font-weight: bold;
+	margin-bottom:4px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 }
-nav li a:hover{
+#navigation li a:hover{
 	color: #FFF;
+	background-color: #FF8108;
 }
 section {
 	clear:both;
+	font-size: 12px;
+	padding:4px;
+}
+section h1 {
+	color: #542900;
+	font-size:20px;
+	padding-bottom:4px;
+	border-bottom: solid 2px #543100;
 }
 
+section h2 {
+	color: #542900;
+	padding-bottom:4px;
+	border-bottom: solid 2px #543100;
+}
+
+section h3 {
+	margin-top: 12px;
+	color: #542900;
+	padding-bottom:4px;
+	border-bottom: solid 2px #543100;
+}
+section a{
+	text-decoration: none;
+	font-weight: bold;
+	cursor:pointer;
+	font-size:14px;
+	color:#FFAD08;
+}
+section a:hover{
+	color: #FF8108;
+}
 footer{
 	text-align:center;
 	background-color:#FC9003;
 	height: 22px;
+	color:#FFF;
 }
 footer p{
 	font-weight: bold;
+}
+
+#package-list{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	width:100%;
+}
+
+#package-list strong{
+	color: #542900;
+}
+
+#package-list p{
+	margin: 0px;
+}
+
+#package-list .details-link{
+	text-align: right;		
+}
+
+#package-list li{
+	background-color: #FFF4E3;
+	margin-bottom:2px;
+	padding:4px;
+}
+.button {
+    /* Disables default styling */
+    border: none;
+    background: #FF8108;
+    color: #fff;
+
+    /* You need to set font, font size and cursor for buttons */
+    font-size: 15px;
+    font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    cursor: pointer;
+
+    padding: 8px 13px;
+    font-weight: bold;
+}
+.button {
+    border-radius: 5px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.15);
+    box-shadow:
+        0 0 0 1px #FF8108 inset, /* Outer bevel */
+        0 0 0 2px #FF8108 inset, /* Inner bevel */
+        0 30px 20px -18px rgba(255,255,255,0.65) inset, /* Inner gradient */
+        1px 1px 3px rgba(0,0,0,0.2) /* Drop shadow */
+    ;
+
+    -webkit-border-radius: 5px;
+    -webkit-text-shadow: 0 -1px 0 rgba(0,0,0,0.15);
+    -webkit-box-shadow:
+        0 0 0 1px #FF0008 inset, /* Outer bevel */
+        0 0 0 2px #FF8108 inset, /* Inner bevel */
+        0 30px 20px -18px rgba(255,255,255,0.65) inset, /* Inner gradient */
+        1px 1px 3px rgba(0,0,0,0.2) /* Drop shadow */
+    ;
 }
