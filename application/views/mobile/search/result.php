@@ -1,41 +1,39 @@
-<?php 
-$items['mobile/search'] = "Voltar";
-$data['items'] = $items;
-$this->load->view('mobile/common/menu',$data); ?>
+<?php
+
+if(isset($back_to_home)){ 
+	$this->load->view('mobile/common/menu');
+}
+else{
+	$items['mobile/search'] = "Voltar";
+	$data['items'] = $items;
+	$this->load->view('mobile/common/menu',$data);
+} 
+
+?>
 
 <h1> Pacotes encontrados </h1>
-
-<ul id="package-list">
-	<li>
-		<p>
-			<strong>  Brasil - São Paulo - São Paulo </strong> 
-		</p>
-		<p>
-			<strong> 20/08/2011  </strong> até <strong> 25/08/2011 </strong>
-			 A partir de <strong> R$ 1000 </strong>
-		</p>
-		<p>			
-			<strong> Adultos: </strong> 2 
-			<strong> Crianças: </strong> 0
-		</p>
-		<p class="details-link">
-			<a>Detalhes</a>
-		</p>
-	</li>
-	<li>
-		<p>
-			<strong>  Brasil - São Paulo - São Paulo </strong> 
-		</p>
-		<p>
-			<strong> 20/08/2011  </strong> até <strong> 25/08/2011 </strong>
-			 A partir de <strong> R$ 1000 </strong>
-		</p>
-		<p>			
-			<strong> Adultos: </strong> 2 
-			<strong> Crianças: </strong> 0
-		</p>
-		<p class="details-link">
-			<a>Detalhes</a>
-		</p>
-	</li>
+<?php if($packages): ?>
+	<ul id="package-list">
+		<?php foreach($packages as $package): ?>
+			<li>
+				<p>
+					<strong><?=$package->state?> - <?=$package->city?></strong> 
+					Tipo: <strong><?=$package->get_transport_type_str()?></strong>
+				</p>
+				<p>
+					<strong> <?=$package->date_br('begin_date')?> </strong> até <strong> <?=$package->date_br('end_date')?> </strong>
+					 A partir de <strong> R$ <?=$package->min_price?>  </strong>
+				</p>
+				<p>			
+					<strong> Adultos: </strong> <?=$package->estimated_adult?>
+					<strong> Crianças: </strong> <?=$package->estimated_children?>
+				</p>
+				<p class="details-link">
+					<a href="/mobile/package/show/<?=$package->id?>">Detalhes</a>
+				</p>
+			</li>
+		<?php endforeach; ?>
 </ul>
+<?php else: ?>
+	<p> Não foi encontrado nenhum pacote turístico </p>
+<?php endif; ?>

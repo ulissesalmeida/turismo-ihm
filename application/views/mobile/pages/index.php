@@ -1,8 +1,8 @@
 <nav id="places">
 				<ul>
-					<li><a><img src="img/mobile/br.jpg" /></a></li>
-					<li><a><img src="img/mobile/eu.jpg"></a></li>
-					<li><a><img src="img/mobile/eua.jpg"></a></li>
+					<li><a href="/mobile/search/search_tours_g/Brasil"><img src="img/mobile/br.jpg" /></a></li>
+					<li><a href="/mobile/search/search_tours_g/<?=('França')?>"><img src="img/mobile/eu.jpg"></a></li>
+					<li><a href="/mobile/search/search_tours_g/<?=('Estados Unidos')?>"><img src="img/mobile/eua.jpg"></a></li>
 				</ul>
 </nav>
 

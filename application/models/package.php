@@ -15,6 +15,16 @@ class Package extends CI_Model {
 	
 	public function get_transport_types(){
 		return array( 1 => 'Aéreo', 2 => 'Rodoviário');
+	}
+	
+	public function date_br($prop){
+		$date = explode('-',$this->$prop);
+		return $date[2].'/'.$date[1].'/'.$date[0];
+	}
+	
+	public function get_transport_type_str(){
+		$types =  $this->get_transport_types();
+		return $types[$this->transport_type];
 	}	
 	
 	public function create(){
@@ -26,7 +36,7 @@ class Package extends CI_Model {
 		$this->db->where('id',$this->id);
 		return $this->db->update('tour_package',$this);
 	}
-	
+
 	public function delete($id){
 		$this->db->where('id',$id);
 		return $this->db->delete('tour_package');
@@ -52,6 +62,14 @@ class Package extends CI_Model {
 	public function list_all(){
 		$this->db->select('*');
 		$this->db->from('tour_package');
+		$query = $this->db->get();
+		return $query->result('Package');
+	}
+	
+	public function list_by_filter($filter){
+		$this->db->select('*');
+		$this->db->from('package_detail');
+		$this->db->where('country',$filter['country']);
 		$query = $this->db->get();
 		return $query->result('Package');
 	}
