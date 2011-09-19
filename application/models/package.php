@@ -50,6 +50,14 @@ class Package extends CI_Model {
 		return $query->row(0,'Package');
 	}
 	
+	public function get_detail($id){
+		$this->db->select('*');
+		$this->db->from('package_detail');
+		$this->db->where('id',$id);
+		$query = $this->db->get();
+		return $query->row(0,'Package');
+	}
+	
 	public function get_package_days(){
 		$this->load->model('packageday');
 		$this->db->select('*');

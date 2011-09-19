@@ -21,6 +21,10 @@ header h1{
 		font-size: 18px;
 }
 
+strong{
+	color: #542900;
+}
+
 #places{
 	background-color: #FFF;
 	padding:2px;
@@ -108,7 +112,7 @@ section h1 {
 
 section h2 {
 	color: #542900;
-	padding-bottom:4px;
+	font-size:18px;
 	border-bottom: solid 2px #543100;
 }
 
@@ -138,30 +142,31 @@ footer p{
 	font-weight: bold;
 }
 
-#package-list{
+.list{
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 	width:100%;
 }
-
-#package-list strong{
-	color: #542900;
-}
-
-#package-list p{
+.list p{
 	margin: 0px;
 }
 
-#package-list .details-link{
-	text-align: right;		
-}
-
-#package-list li{
+.list li{
 	background-color: #FFF4E3;
 	margin-bottom:2px;
 	padding:4px;
 }
+.fields-list{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	width:100%;
+}
+.command-links{
+	text-align: right;		
+}
+
 .button {
     /* Disables default styling */
     border: none;

@@ -13,7 +13,7 @@ else{
 
 <h1> Pacotes encontrados </h1>
 <?php if($packages): ?>
-	<ul id="package-list">
+	<ul class="list">
 		<?php foreach($packages as $package): ?>
 			<li>
 				<p>
@@ -28,8 +28,8 @@ else{
 					<strong> Adultos: </strong> <?=$package->estimated_adult?>
 					<strong> Crianças: </strong> <?=$package->estimated_children?>
 				</p>
-				<p class="details-link">
-					<a href="/mobile/package/show/<?=$package->id?>">Detalhes</a>
+				<p class="command-links">
+					<a href="/mobile/packages/show/<?=$package->id?>">Detalhes</a>
 				</p>
 			</li>
 		<?php endforeach; ?>
