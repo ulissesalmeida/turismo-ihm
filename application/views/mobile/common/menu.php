@@ -11,7 +11,7 @@
 			<?endforeach; ?>
 		<?php else: ?>
 				<li>
-					<a href="/" title="Voltar"> Voltar </a>
+					<a href="/" title="Voltar"> Voltar para o início </a>
 				</li>
 		<?php endif; ?>
 	</ul>

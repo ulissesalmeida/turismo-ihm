@@ -68,9 +68,10 @@ class PackageDay extends CI_Model {
 	
 	public function rooms_first(){
 		$this->load->model('room');
-		$this->db->select('hr.id,hr.hostel_id,hr.description,hr.price,hr.single_beds,hr.double_beds');
+		$this->db->select('hr.id,hr.hostel_id,hr.description,hr.price,hr.single_beds,hr.double_beds, h.name');
 		$this->db->from('hostel_room hr');
 		$this->db->join('package_day_room pdr','pdr.hostel_room_id = hr.id');
+		$this->db->join('hostel h','h.id = hr.hostel_id');
 		$this->db->where('pdr.package_day_id',$this->id);
 		$query = $this->db->get();
 		return $query->row(0,'Room');

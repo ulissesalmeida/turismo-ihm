@@ -12,6 +12,10 @@ class Tour extends CI_Model {
 		$this->load->database('default');
 	}	
 	
+	public function price_br($prop){
+		return 'R$ '.round($this->$prop,2);
+	}
+	
 	public function create(){
 		$this->db->insert('tour',$this);
 		return $this->db->insert_id();
@@ -21,7 +25,7 @@ class Tour extends CI_Model {
 		$this->db->where('id',$this->id);
 		return $this->db->update('tour',$this);
 	}
-	
+		
 	public function delete($id){
 		$this->db->where('id',$id);
 		return $this->db->delete('tour');
@@ -38,6 +42,14 @@ class Tour extends CI_Model {
 	public function list_all(){
 		$this->db->select('*');
 		$this->db->from('tour');
+		$query = $this->db->get();
+		return $query->result('Tour');
+	}
+	
+	public function list_by_local($local_id){
+		$this->db->select('*');
+		$this->db->from('tour');
+		$this->db->where('local_id',$local_id);
 		$query = $this->db->get();
 		return $query->result('Tour');
 	}

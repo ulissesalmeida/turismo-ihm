@@ -9,7 +9,7 @@
 <?php 
 
 	$items['/mobile/search'] = 'Buscar pacote turístico';
-	$items['/mobile/client/cart'] = 'Meu carrinho';
+	$items['/mobile/client/find_purchase'] = 'Consultar pedido';
 	$items['/mobile/pages/about'] = 'Sobre a PVC Turismo';
 	$data['items'] = $items;
 	$this->load->view('mobile/common/menu',$data); 

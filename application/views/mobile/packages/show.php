@@ -8,6 +8,13 @@
 		$rooms_message = "Quarto com {$room->single_beds} cama(s) de solteiro";
 	else if($room->double_beds)
 		$rooms_message = "Quarto com {$room->double_beds} cama(s) de casal";
+		
+	$tours_options = array();
+	if(count($tours)){
+		foreach($tours as $tour){
+			$tours_options[$tour->id] = "{$tour->name} - Criança: {$tour->price_br('price_children')} Adulto: {$tour->price_br('price_adult')}";
+		}
+	}
 	
 ?>
 
@@ -36,7 +43,8 @@
 		<strong>Crianças:</strong> <?=$package->estimated_children?>
 	</li>
 	<li>
-		<strong>Hotel:</strong> 
+		<strong>Hospedagem:</strong>
+		<?=$room->name?> - 
 		<?=$rooms_message?> <br/>
 		<em><?=$room->description?></em>
 	</li>
@@ -44,16 +52,19 @@
 
 <h2> Diárias </h2>
 
-<form>
+<form action="mobile/client/checkout" method="POST">
+	
 <ul class="list">
+	<input name="package_id" type="hidden" value="<?=$package->id?>" />
 <?php foreach($days as $day): ?>
 	<li>
 		<p>
 			Selecione o passeio para o dia<strong> <?=$day->date_br()?></strong> <br/>
-			<select></select>
+			<?=form_dropdown('tours[]',$tours_options)?>
 		</p>
 	</li>
 <?php endforeach; ?>
 </ul>
+	<input type="submit" class="button" value="Calcular o valor total e comprar" />
 </form>
 

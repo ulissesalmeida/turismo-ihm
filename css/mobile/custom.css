@@ -166,6 +166,12 @@ footer p{
 .command-links{
 	text-align: right;		
 }
+select{
+	font-size:12px;
+}
+label{
+	color: #542900;
+}
 
 .button {
     /* Disables default styling */
