@@ -1,21 +1,17 @@
 <?php 
 	$days = $package->get_package_days();
 	$room = $days[0]->rooms_first();
-	$rooms_message = "";
-	if($room->single_beds && $room->double_beds)
-		$rooms_message = "Quarto com {$room->single_beds} cama(s) de solteiro e {$room->double_beds} de casal";
-	else if($room->single_beds)
-		$rooms_message = "Quarto com {$room->single_beds} cama(s) de solteiro";
-	else if($room->double_beds)
-		$rooms_message = "Quarto com {$room->double_beds} cama(s) de casal";
-		
+			
 	$tours_options = array();
 	if(count($tours)){
 		foreach($tours as $tour){
-			$tours_options[$tour->id] = "{$tour->name} - Criança: {$tour->price_br('price_children')} Adulto: {$tour->price_br('price_adult')}";
+			$tours_options[$tour->id] = "{$tour->name} - {$tour->price_total_br($package->estimated_adult, $package->estimated_children)}";
 		}
 	}
 	
+	$items['mobile/search'] = "Voltar para busca";
+	$data['items'] = $items;
+	$this->load->view('mobile/common/menu',$data);	
 ?>
 
 <h1>Detalhes da viagem</h1>
@@ -45,7 +41,7 @@
 	<li>
 		<strong>Hospedagem:</strong>
 		<?=$room->name?> - 
-		<?=$rooms_message?> <br/>
+		<?=$room->get_beds_description()?> <br/>
 		<em><?=$room->description?></em>
 	</li>
 </ul>

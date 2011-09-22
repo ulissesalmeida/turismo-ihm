@@ -1,6 +1,6 @@
 <?php
 
-if(isset($back_to_home)){ 
+if($back_to_home){ 
 	$this->load->view('mobile/common/menu');
 }
 else{

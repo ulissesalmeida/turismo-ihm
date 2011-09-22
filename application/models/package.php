@@ -74,6 +74,13 @@ class Package extends CI_Model {
 		return $query->result('Package');
 	}
 	
+	public function list_all_detail(){
+		$this->db->select('*');
+		$this->db->from('package_detail');
+		$query = $this->db->get();
+		return $query->result('Package');
+	}
+	
 	public function list_by_filter($filter){
 		$this->db->select('*');
 		$this->db->from('package_detail');

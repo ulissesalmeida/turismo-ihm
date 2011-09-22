@@ -102,6 +102,37 @@ footer p {
 	color: #FFF;
 }
 
+.list{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	width:100%;
+}
+.list p{
+	margin: 0px;
+}
+
+.list li{
+	background-color: #FFF4E3;
+	margin-bottom:2px;
+	padding:4px;
+}
+.fields-list{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	width:100%;
+}
+.command-links{
+	text-align: right;		
+}
+select{
+	font-size:12px;
+}
+label{
+	color: #542900;
+}
+
 .button {
     /* Disables default styling */
     border: none;

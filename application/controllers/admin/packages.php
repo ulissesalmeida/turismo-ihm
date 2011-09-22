@@ -8,7 +8,7 @@ class Packages extends CI_Controller {
 	}
 	public function index(){
 		$this->load->model('package');
-		$data['packages'] = $this->package->list_all();
+		$data['packages'] = $this->package->list_all_detail();
 		
 		$this->load->view('layout/admin/header');
 		$this->load->view('admin/package/index', $data);

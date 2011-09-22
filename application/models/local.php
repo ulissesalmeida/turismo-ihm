@@ -11,7 +11,7 @@ class Local extends CI_Model {
 	}
 
 	public function get_description(){
-		return $this->city.' - '.$this->state.' - '.$this->country;
+		return $this->country.' - '.$this->state.' - '.$this->city;
 	}
 	
 	public function create(){

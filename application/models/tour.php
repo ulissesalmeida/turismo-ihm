@@ -16,6 +16,10 @@ class Tour extends CI_Model {
 		return 'R$ '.round($this->$prop,2);
 	}
 	
+	public function price_total_br($adults, $childrens ){
+		return 'R$ '.round(($this->price_adult*$adults)+($this->price_children*$childrens),2);
+	}
+	
 	public function create(){
 		$this->db->insert('tour',$this);
 		return $this->db->insert_id();

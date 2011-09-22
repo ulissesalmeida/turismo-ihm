@@ -23,6 +23,17 @@ class Room extends CI_Model {
 		return $this->name.' | Camas[Solteiro:'.$this->single_beds.
 				' | Casal: '.$this->double_beds.
 				' ] | Preço: '.$this->price;
+	}
+	
+	public function get_beds_description(){
+		$rooms_message = "";
+		if($this->single_beds && $this->double_beds)
+			$rooms_message = "Quarto com {$this->single_beds} cama(s) de solteiro e {$this->double_beds} de casal";
+		else if($this->single_beds)
+			$rooms_message = "Quarto com {$this->single_beds} cama(s) de solteiro";
+		else if($this->double_beds)
+			$rooms_message = "Quarto com {$this->double_beds} cama(s) de casal";
+		return $rooms_message;
 	}	
 	
 	public function create(){

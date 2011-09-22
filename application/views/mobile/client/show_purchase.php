@@ -4,13 +4,6 @@
 		$tours = $package_sale->get_tours();
 		$days = $package->get_package_days();
 		$room = $days[0]->rooms_first();
-		$rooms_message = "";
-		if($room->single_beds && $room->double_beds)
-			$rooms_message = "Quarto com {$room->single_beds} cama(s) de solteiro e {$room->double_beds} de casal";
-		else if($room->single_beds)
-			$rooms_message = "Quarto com {$room->single_beds} cama(s) de solteiro";
-		else if($room->double_beds)
-			$rooms_message = "Quarto com {$room->double_beds} cama(s) de casal";
 	}
 		
 	 $this->load->view('mobile/common/menu');
@@ -55,7 +48,7 @@
 	<li>
 		<strong>Hospedagem:</strong>
 		<?=$room->name?> - 
-		<?=$rooms_message?> <br/>
+		<?=$room->get_beds_description()?> <br/>
 		<em><?=$room->description?></em>
 	</li>
 	<li>
