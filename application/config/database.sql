@@ -147,8 +147,8 @@ CREATE TABLE `package_day_room` (
   PRIMARY KEY (`package_day_id`,`hostel_room_id`),
   KEY `fk_pdr_package_day` (`package_day_id`),
   KEY `fk_pdr_hostel_room` (`hostel_room_id`),
-  CONSTRAINT `fk_pdr_package_day` FOREIGN KEY (`package_day_id`) REFERENCES `package_day` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_pdr_hostel_room` FOREIGN KEY (`hostel_room_id`) REFERENCES `hostel_room` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_pdr_hostel_room` FOREIGN KEY (`hostel_room_id`) REFERENCES `hostel_room` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_pdr_package_day` FOREIGN KEY (`package_day_id`) REFERENCES `package_day` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -177,9 +177,9 @@ CREATE TABLE `package_day_sale_tour` (
   KEY `fk_pdst_tour_package_sale` (`tour_package_sale_id`),
   KEY `fk_pdst_package_day` (`package_day_id`),
   KEY `fk_pdst_tour` (`tour_id`),
-  CONSTRAINT `fk_pdst_tour_package_sale` FOREIGN KEY (`tour_package_sale_id`) REFERENCES `tour_package_sale` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_pdst_package_day` FOREIGN KEY (`package_day_id`) REFERENCES `package_day` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_pdst_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_pdst_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_pdst_tour_package_sale` FOREIGN KEY (`tour_package_sale_id`) REFERENCES `tour_package_sale` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -189,6 +189,7 @@ CREATE TABLE `package_day_sale_tour` (
 
 LOCK TABLES `package_day_sale_tour` WRITE;
 /*!40000 ALTER TABLE `package_day_sale_tour` DISABLE KEYS */;
+INSERT INTO `package_day_sale_tour` VALUES (3,1,4),(3,2,4),(3,3,4),(3,4,4),(4,1,4),(4,2,4),(4,3,4),(4,4,4),(5,1,4),(5,2,1),(5,3,4),(5,4,1);
 /*!40000 ALTER TABLE `package_day_sale_tour` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -207,6 +208,7 @@ SET character_set_client = utf8;
   `passage_price_children` decimal(6,2),
   `estimated_adult` tinyint(4),
   `estimated_children` tinyint(4),
+  `local_id` int(11),
   `country` varchar(80),
   `state` varchar(80),
   `city` varchar(80),
@@ -234,7 +236,7 @@ CREATE TABLE `tour` (
   PRIMARY KEY (`id`),
   KEY `fk_t_local` (`local_id`),
   CONSTRAINT `fk_t_local` FOREIGN KEY (`local_id`) REFERENCES `local` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -243,7 +245,7 @@ CREATE TABLE `tour` (
 
 LOCK TABLES `tour` WRITE;
 /*!40000 ALTER TABLE `tour` DISABLE KEYS */;
-INSERT INTO `tour` VALUES (1,1,'Parque do Paço','15.0000','5.0000','Passeio muito legal no parque do paço de Diadema. Tem quadras e floresta.'),(2,2,'Estatua da Liberdade','50.0000','25.0000','Um tour na maravilhosa estatua da liberdade e bla bla'),(3,4,'Praia de Copacabana','20.0000','10.0000','Um tour na praia mais quente do Brasil.');
+INSERT INTO `tour` VALUES (1,1,'Parque do Paço','15.0000','5.0000','Passeio muito legal no parque do paço de Diadema. Tem quadras e floresta.'),(2,2,'Estatua da Liberdade','50.0000','25.0000','Um tour na maravilhosa estatua da liberdade e bla bla'),(3,4,'Praia de Copacabana','20.0000','10.0000','Um tour na praia mais quente do Brasil.'),(4,1,'Passeio na coca','25.0000','10.0000','Passeio muito legal na favela mais perigosa de diadema');
 /*!40000 ALTER TABLE `tour` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -293,10 +295,12 @@ CREATE TABLE `tour_package_sale` (
   `childrens` tinyint(4) NOT NULL,
   `price_total` decimal(10,2) NOT NULL,
   `payment_status` tinyint(4) NOT NULL,
+  `sale_code` varchar(40) NOT NULL,
+  `date_time` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_tps_tourpackage` (`tour_package_id`),
   CONSTRAINT `fk_tps_tourpackage` FOREIGN KEY (`tour_package_id`) REFERENCES `tour_package` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -305,6 +309,7 @@ CREATE TABLE `tour_package_sale` (
 
 LOCK TABLES `tour_package_sale` WRITE;
 /*!40000 ALTER TABLE `tour_package_sale` DISABLE KEYS */;
+INSERT INTO `tour_package_sale` VALUES (3,1,'anizark@gmail.com',2,0,'0.00',1,'58faa0ce5004c49cf21d526f571c87e305194194','2011-09-21 14:54:50'),(4,1,'teste@mail.com',2,0,'1000.00',1,'5da612a4e8024d575656695d21cfcbb7d878e15b','2011-09-21 15:12:16'),(5,1,'teste@mail.com',2,0,'960.00',1,'952473df81d6569eb3bff74d58e2276bed933e7e','2011-09-21 15:46:28');
 /*!40000 ALTER TABLE `tour_package_sale` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,7 +333,7 @@ USE `tourism`;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `package_detail` AS select `tp`.`id` AS `id`,`tp`.`transport_type` AS `transport_type`,`tp`.`passage_price_adult` AS `passage_price_adult`,`tp`.`passage_price_children` AS `passage_price_children`,`tp`.`estimated_adult` AS `estimated_adult`,`tp`.`estimated_children` AS `estimated_children`,`l`.`country` AS `country`,`l`.`state` AS `state`,`l`.`city` AS `city`,min(`pd`.`date`) AS `begin_date`,max(`pd`.`date`) AS `end_date`,count(`pd`.`id`) AS `days`,(((`tp`.`estimated_adult` * `tp`.`passage_price_adult`) + (`tp`.`passage_price_children` * `tp`.`estimated_children`)) + (count(`pd`.`id`) * max(`hr`.`price`))) AS `min_price` from ((((`tour_package` `tp` join `local` `l` on((`l`.`id` = `tp`.`destination_id`))) join `package_day` `pd` on((`tp`.`id` = `pd`.`tour_package`))) join `package_day_room` `pdr` on((`pd`.`id` = `pdr`.`package_day_id`))) join `hostel_room` `hr` on((`pdr`.`hostel_room_id` = `hr`.`id`))) group by `tp`.`id` */;
+/*!50001 VIEW `package_detail` AS select `tp`.`id` AS `id`,`tp`.`transport_type` AS `transport_type`,`tp`.`passage_price_adult` AS `passage_price_adult`,`tp`.`passage_price_children` AS `passage_price_children`,`tp`.`estimated_adult` AS `estimated_adult`,`tp`.`estimated_children` AS `estimated_children`,`l`.`id` AS `local_id`,`l`.`country` AS `country`,`l`.`state` AS `state`,`l`.`city` AS `city`,min(`pd`.`date`) AS `begin_date`,max(`pd`.`date`) AS `end_date`,count(`pd`.`id`) AS `days`,(((`tp`.`estimated_adult` * `tp`.`passage_price_adult`) + (`tp`.`passage_price_children` * `tp`.`estimated_children`)) + (count(`pd`.`id`) * max(`hr`.`price`))) AS `min_price` from ((((`tour_package` `tp` join `local` `l` on((`l`.`id` = `tp`.`destination_id`))) join `package_day` `pd` on((`tp`.`id` = `pd`.`tour_package`))) join `package_day_room` `pdr` on((`pd`.`id` = `pdr`.`package_day_id`))) join `hostel_room` `hr` on((`pdr`.`hostel_room_id` = `hr`.`id`))) group by `tp`.`id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -342,4 +347,4 @@ USE `tourism`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-09-19 13:55:13
+-- Dump completed on 2011-09-22 10:41:10
