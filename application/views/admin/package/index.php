@@ -5,8 +5,13 @@
 	<?php foreach ($packages as $package):?>
 	
 		<li><p>
-				Pacote para: <?=$package->country?> - <?=$package->state?> - <?=$package->city?> 
-				Preço inciial: R$ <?=$package->min_price?>
+				Pacote ID: <?=$package->id?> - 
+				Preço adulto: <?=$package->passage_price_adult?> 
+				Preço criança: - <?=$package->passage_price_children?>
+			</p>
+			<p>
+				Crianças: <?=$package->estimated_adult?> 
+				Adultos: <?=$package->estimated_children?> 
 			</p>
 			<p class="command-links">
 				<a href="/admin/packages/edit/<?=$package->id?>">Editar</a> |

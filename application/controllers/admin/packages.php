@@ -8,7 +8,7 @@ class Packages extends CI_Controller {
 	}
 	public function index(){
 		$this->load->model('package');
-		$data['packages'] = $this->package->list_all_detail();
+		$data['packages'] = $this->package->list_all();
 		
 		$this->load->view('layout/admin/header');
 		$this->load->view('admin/package/index', $data);
@@ -50,8 +50,8 @@ class Packages extends CI_Controller {
 		$this->package->passage_price_children = $this->input->post('passage_price_children');
 		$this->package->estimated_adult = $this->input->post('estimated_adult');
 		$this->package->estimated_children = $this->input->post('estimated_children');
-		$this->package->create();		
-		redirect('/admin/packages');
+		$id = $this->package->create();		
+		redirect('/admin/packages/edit/'.$id);
 	}	
 	
 	public function update(){

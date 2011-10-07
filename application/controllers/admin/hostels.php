@@ -45,9 +45,9 @@ class Hostels extends CI_Controller {
 		$this->load->model('hostel');
 		$this->hostel->name = $this->input->post('name');
 		$this->hostel->local_id = $this->input->post('local');
-		$this->hostel->create();
+		$id = $this->hostel->create();
 		
-		redirect('/admin/hostels');
+		redirect('/admin/hostels/edit/'.$id);
 	}	
 	
 	public function update(){
