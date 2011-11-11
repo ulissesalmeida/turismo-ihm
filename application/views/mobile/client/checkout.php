@@ -17,6 +17,8 @@
 </p>
 <p>	Preço Total: <strong> R$ <?=$total_price?>  </strong> </p>
 
+<h1> O comprovante de sua compra será enviado por e-mail! </h1>
+
 <h2> Dados para compra (Mastercard) </h2>
 <form action="mobile/client/buy" method="POST">
 	<input name="package_id" type="hidden" value="<?=$package->id?>" />
